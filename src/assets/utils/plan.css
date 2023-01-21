@@ -1,0 +1,38 @@
+.div{
+    height: 50px;
+    padding: auto;
+    background-color: #06b6d4;
+    color: rgb(224, 217, 217);
+    width: 100%;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div2{
+    height: 50px;
+    padding: auto;
+    background-color:   #0ea5e9;
+    color: whitesmoke;
+    width: 100%;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div3{
+    height: 50px;
+    padding: auto;
+    background-color: #3b82f6;
+    color: whitesmoke;
+    width: 100%;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
