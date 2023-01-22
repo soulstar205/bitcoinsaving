@@ -1,26 +1,27 @@
 /*eslint-disable*/
 import React from "react";
 import { Link } from "react-router-dom";
-import IndexNavbar from "components/Navbars/IndexNavbar.js";
-import Footer from "components/Footers/Footer.js";
-import headImage from "assets/img/header-image.jpg"
-import presentation from "assets/img/presentation.png"
-import hold from "assets/img/hold.jpg"
-import business from "assets/img/business-plan.png"
-import returnInvest from "assets/img/returnInvest.png"
-import money from "assets/img/money-bag.png"
-import office from "assets/img/office.png"
-import cto from "assets/img/cto.jpg"
-import hr from "assets/img/hr.jpg"
-import engineer from "assets/img/engineer.jpg"
-import data from "assets/img/data.jpg"
-import executive from "assets/img/executive.jpg"
-import ceo from "assets/img/ceo.jpg"
-import { Card } from "assets/utils/planCard";
-import { Gold } from "assets/utils/planCard";
-import { Silver } from "assets/utils/planCard";
-import { Testimonials } from "assets/testimonials/test";
-import { Trusted } from "assets/testimonials/trusted";
+import IndexNavbar from "../components/Navbars/IndexNavbar.js";
+import Footer from "../components/Footers/Footer.js";
+import headImage from "../assets/img/header-image.jpg"
+import presentation from "../assets/img/presentation.png"
+import hold from "../assets/img/hold.jpg"
+import business from "../assets/img/business-plan.png"
+
+import returnInvest from "../assets/img//returnInvest.png"
+import money from "../assets/img/money-bag.png"
+import office from "../assets/img/office.png"
+import cto from "../assets/img/cto.jpg"
+import hr from "../assets/img/hr.jpg"
+import engineer from "../assets/img/engineer.jpg"
+import data from "../assets/img/data.jpg"
+import executive from "../assets/img/executive.jpg"
+import ceo from "../assets/img/ceo.jpg"
+import { Card } from "../assets/utils/planCard";
+import { Gold } from "../assets/utils/planCard";
+import { Silver } from "../assets/utils/planCard";
+import { Testimonials } from "../assets/testimonials/test";
+import { Trusted } from "../assets/testimonials/trusted";
 
 
 
