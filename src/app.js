@@ -23,35 +23,13 @@ import { setTokenSourceMapRange } from 'typescript';
 
 
 const App = () => {
-  // const{ token} = useContext(UserContext)
-  // // const [isAuthenticated, setIsAuthenticated] = useState(false)
-  // const [token, setToken] = useState('')
 
-  // useEffect(()=>{
-  //   const getToken = ()=>{
-     
-  //     setToken(token)
-  //   }
-  //   getToken()
-  // },[])
-  // console.log(token)
   const token = localStorage.getItem('token')
     return(
     <BrowserRouter>
     
     <Switch>
 
-      {/* add routes with layouts */}
-      {/* <SuperAminProtectedRoute 
-      path="/super-admin"
-      component={SuperAdmin}
-      isAuthenticated={isAuthenticated}
-      /> */}
-      {/* <ProtectedRoute
-          path="/admin"
-          component={Admin}
-          isAuthenticated={isAuthenticated}
-        /> */}
       <Route
           path="/super-admin"
           render={() =>
