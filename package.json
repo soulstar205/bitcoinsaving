@@ -29,6 +29,7 @@
     "tailwindcss": "^2.2.19"
   },
   "scripts": {
+    "predeploy": "npm run build",
     "start": "react-scripts start",
     "build": "react-scripts build ",
     "test": "react-scripts test",
@@ -38,6 +39,9 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "engines": {
+    "node": ">=16.19.0"
   },
   "browserslist": {
     "production": [
