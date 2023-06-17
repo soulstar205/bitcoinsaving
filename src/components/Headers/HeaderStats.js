@@ -1,66 +1,59 @@
-import React from "react";
+import React,{useState} from "react";
 
 // components
 
-import CardStats from "../../components/Cards/CardStats.js";
+import {CardStats} from "../../components/Cards/CardStats.js";
 
-export default function HeaderStats() {
+export default function HeaderStats(user) {
+  const [timer, setTimer] = useState(0)
+  const [deposit, setDeposit] = useState(0)
+  const [currentValue, setCurrentValue] = useState(0)
+  const [rate, setRate] = useState(0)
+  const [alert, setAlert] = useState('')
+  
+
+  
   return (
     <>
       {/* Header */}
-      <div className="relative bg-lightBlue-600 md:pt-32 pb-32 pt-12">
+      <div className="relative bg-lightBlue-600 md:pt-10 pt-10">
         <div className="px-4 md:px-10 mx-auto w-full">
           <div>
             {/* Card stats */}
             <div className="flex flex-wrap">
-              <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
+              <div className="w-full lg:w-3/12 xl:w-2/12 px-2 mb-2">
                 <CardStats
-                  statSubtitle="TRAFFIC"
-                  statTitle="350,897"
-                  statArrow="up"
-                  statPercent="3.48"
-                  statPercentColor="text-emerald-500"
-                  statDescripiron="Since last month"
-                  statIconName="far fa-chart-bar"
+                  statSubtitle="DEPOSIT"
+                  statTitle={`$${deposit}`}
+                  statIconName="fa fa-download"
                   statIconColor="bg-red-500"
                 />
-              </div>
-              <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
+              </div> 
+              <div className="w-full lg:w-4/12 xl:w-3/12 px-2 mb-2">
                 <CardStats
-                  statSubtitle="NEW USERS"
-                  statTitle="2,356"
-                  statArrow="down"
-                  statPercent="3.48"
-                  statPercentColor="text-red-500"
-                  statDescripiron="Since last week"
-                  statIconName="fas fa-chart-pie"
+                  statSubtitle="PROFIT"
+                  statTitle={`$${currentValue - deposit}`}
+                  statIconName="fa fa-coins"
                   statIconColor="bg-orange-500"
                 />
               </div>
-              <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
+              <div className="w-full lg:w-4/12 xl:w-3/12 px-2 mb-2" >
                 <CardStats
-                  statSubtitle="SALES"
-                  statTitle="924"
-                  statArrow="down"
-                  statPercent="1.10"
-                  statPercentColor="text-orange-500"
-                  statDescripiron="Since yesterday"
-                  statIconName="fas fa-users"
-                  statIconColor="bg-pink-500"
+                  statSubtitle="ACC BALANCE"
+                  statTitle={`$${timer}`}
+                  statIconName="fa fa-dollar-sign"
+                  statIconColor="bg-purple-500"
                 />
               </div>
-              <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
+              <div className="w-full lg:w-4/12 xl:w-3/12 px-2 mb-2">
                 <CardStats
-                  statSubtitle="PERFORMANCE"
-                  statTitle="49,65%"
-                  statArrow="up"
-                  statPercent="12"
-                  statPercentColor="text-emerald-500"
-                  statDescripiron="Since last month"
-                  statIconName="fas fa-percent"
+                  statSubtitle="TOTAL BONUS"
+                  statTitle={`$${timer}`}
+                  statIconName="fa fa-gift"
                   statIconColor="bg-lightBlue-500"
                 />
               </div>
+             
             </div>
           </div>
         </div>

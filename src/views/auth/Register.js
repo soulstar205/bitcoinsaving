@@ -1,6 +1,56 @@
-import React from "react";
+import React, {useState} from "react";
+import Select from "react-select";
+import { useHistory } from "react-router";
+import axios from 'axios'
 
 export default function Register() {
+  const [name, setName] = useState('')
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('')
+  const [plan, setPlan] = useState('')
+  const [phone, setPhone] = useState(null)
+  const [country, setCountry] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
+  const history = useHistory()
+
+  const handleSelectChange = (event) => {
+    setPlan(event.target.value);
+  };
+
+  const createUser = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const newUser = {
+      name,
+      username: username.toLowerCase(),
+      password,
+      email,
+      phone,
+      plan,
+      country
+    };
+
+    console.log(newUser);
+    try {
+      const response = await axios.post('http://localhost:3001/api/users/register', {...newUser});
+      console.log(response.data);
+      setLoading(false);
+      
+      if (response.status === 200) {
+        history.push('/auth/login')
+      } else {
+        setError('Registration failed. Please try again.');
+      }
+    } catch (err) {
+      console.log(err);
+      setError(err.message);
+      setLoading(false)
+    }
+  };
+
   return (
     <>
       <div className="container mx-auto px-4 h-full">
@@ -14,18 +64,41 @@ export default function Register() {
                     Sign Up
                   </h6>
                 </div>
-                <form>
+                {error && <div className="alert alert-danger alert-dismissible fade show" role="alert">
+                          {error}
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                          </button>
+                </div>}
+                <form onSubmit={createUser}>
+                <div className="relative w-full mb-3">
+                    <label
+                      className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                      htmlFor="grid-password"
+                    >
+                      Full Name
+                    </label>
+                    <input
+                      value={name}
+                      onChange={(e)=> setName(e.target.value) }
+                      type="text"
+                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      placeholder="Full name"
+                    />
+                  </div>
                   <div className="relative w-full mb-3">
                     <label
                       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-password"
                     >
-                      Name
+                      Username
                     </label>
                     <input
-                      type="email"
+                      value={username}
+                      onChange={(e)=> setUsername(e.target.value) }
+                      type="text"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                      placeholder="Name"
+                      placeholder="Username"
                     />
                   </div>
 
@@ -37,6 +110,8 @@ export default function Register() {
                       Email
                     </label>
                     <input
+                      value={email}
+                      onChange={(e)=> setEmail(e.target.value) }
                       type="email"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Email"
@@ -51,10 +126,58 @@ export default function Register() {
                       Password
                     </label>
                     <input
+                      value={password}
+                      onChange={(e)=> setPassword(e.target.value) }
                       type="password"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Password"
                     />
+                  </div>
+
+                  <div className="relative w-full mb-3">
+                    <label
+                      className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                      htmlFor="grid-password"
+                    >
+                      phone number
+                    </label>
+                    <input
+                      value={phone}
+                      onChange={(e)=> setPhone(e.target.value) }
+                      type="number"
+                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      placeholder="Phone Number"
+                    />
+                  </div>
+
+                  <div className="relative w-full mb-3">
+                    <label
+                      className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                      htmlFor="grid-password"
+                    >
+                      country
+                    </label>
+                    <input
+                      value={country}
+                      onChange={(e)=> setCountry(e.target.value) }
+                      type="text"
+                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      placeholder="Country"
+                    />
+                  </div>
+
+                  <div className="relative w-full mb-3">
+                    <label
+                      className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                      htmlFor="grid-password"
+                    >
+                      Plan
+                    </label>
+                       <select value={plan} onChange={handleSelectChange} className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                        <option value="silver">Silver Plan = $500 - $999</option>
+                        <option value="gold">Gold Plan = $1000 - $4,999</option>
+                        <option value="platinum">Platinum Plan = $5000 - $9,999</option>
+                      </select>
                   </div>
 
                   <div>
@@ -80,11 +203,13 @@ export default function Register() {
                   <div className="text-center mt-6">
                     <button
                       className="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
-                      type="button"
+                      type="submit"
+                      
                     >
                       Create Account
                     </button>
                   </div>
+                  <span>{loading && <small>Loading...</small>}</span>
                 </form>
               </div>
             </div>

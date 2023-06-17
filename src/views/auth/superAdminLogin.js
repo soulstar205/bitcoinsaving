@@ -1,14 +1,14 @@
 import axios from "axios";
-import React, {useContext, useState} from "react";
+import React, {useState, useContext} from "react";
 import { useHistory, Link} from "react-router-dom";
 import { UserContext } from "../../state/userContext";
 
-export default function Login() {
-  const {  loginUser} = useContext(UserContext)
+export default function AdminLogin() {
+  const {loginAdmin} = useContext(UserContext)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
+  const [loading, setLoading] =useState(false)
+  const [error, setError] = useState('')
   const history = useHistory()
 
   const handleLogin = async (e) => {
@@ -18,14 +18,13 @@ export default function Login() {
       email,
       password
     };
-    const result = await loginUser(loginData);
+    const result = await loginAdmin(loginData);
     
     if (result.success) {
       // Redirect to the admin page
+      history.push('/super-admin');
       setLoading(false);
-      console.log(result)
-      history.push('/admin');
-    } else {
+    } else { 
       // Update the error state
       setError(result.error);
       console.log(result.error)
@@ -124,7 +123,7 @@ export default function Login() {
                 </a>
               </div>
               <div className="w-1/2 text-right">
-                <Link to="/auth/register" className="text-blueGray-200">
+                <Link to="/auth/super-admin/register" className="text-blueGray-200">
                   <small>Create new account</small>
                 </Link>
 

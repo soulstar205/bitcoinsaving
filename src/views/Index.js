@@ -186,13 +186,13 @@ export default function Index() {
           </div>
         </div>
 
-        <div className="container mx-auto overflow-hidden pb-20">
+        <div className="container mx-auto overflow-hidden pb-20" id="about">
           <div className="flex flex-wrap items-center">
             <div className="w-full md:w-4/12 px-12 md:px-4 ml-auto mr-auto mt-48">
               <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
                 <i className="fas fa-sitemap text-xl"></i>
               </div>
-              <h3 className="text-3xl mb-2 font-semibold leading-normal">
+              <h3 className="text-3xl mb-2 font-semibold leading-normal" >
                 About Us
               </h3>
               <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
@@ -431,7 +431,7 @@ export default function Index() {
         </div>
 
        
-        <div className="justify-center text-center flex flex-wrap mt-24">
+        <div className="justify-center text-center flex flex-wrap mt-24" id="plans">
           <div className="w-full md:w-6/12 px-12 md:px-4">
             <h2 className="font-semibold text-4xl">Our Plans</h2>
             <p className="text-lg leading-relaxed mt-4 mb-4 text-blueGray-500">
@@ -441,7 +441,7 @@ export default function Index() {
         </div>
       </section>
 
-      <section className="block relative z-1 bg-blueGray-600">
+      <section className="block relative z-1 bg-blueGray-600" >
         <div className="container mx-auto">
           <div className="justify-center flex flex-wrap">
             <div className="w-full lg:w-12/12 px-4  -mt-24">

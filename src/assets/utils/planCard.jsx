@@ -117,7 +117,7 @@ export const Gold = () => {
             Maximum Return --{">"} <span className="font-medium font-bold">$18,000</span>
             </div>
             <div className="text-xl font-medium div shadow-md div3">
-            Duration --{">"} <span className="font-medium font-bold"> 1 Month</span>
+            Duration --{">"} <span className="font-medium font-bold"> 1 Week</span>
             </div>
       </div>
 );
