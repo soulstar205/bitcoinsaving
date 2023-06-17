@@ -29,7 +29,7 @@ const App = () => {
     <BrowserRouter>
     
     <Switch>
-
+ 
       <Route
           path="/super-admin"
           render={() =>
