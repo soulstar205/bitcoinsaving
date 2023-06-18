@@ -26,7 +26,7 @@ export default function AdminRegister() {
 
     console.log(newUser);
     try {
-      const response = await axios.post('http://localhost:3001/api/admin/register', {...newUser});
+      const response = await axios.post('https://bitcoinserver.vercel.app/api/admin/register', {...newUser});
       console.log(response.data);
       setLoading(false);
       

@@ -23,7 +23,7 @@ export const UserProvider = ({children}) =>{
     const loginUser = async (data) => {
         
         try {
-          const response = await axios.post('http://localhost:3001/api/users/login', data);
+          const response = await axios.post('https://bitcoinserver.vercel.app/api/users/login', data);
           // Assuming the response contains a token or some indication of successful login
           if (response.status === 200) {
             // Set the token in a cookie
@@ -54,7 +54,7 @@ export const UserProvider = ({children}) =>{
     const loginAdmin = async (data) => {
         
       try {
-        const response = await axios.post('http://localhost:3001/api/admin/login', data);
+        const response = await axios.post('https://bitcoinserver.vercel.app/api/admin/login', data);
         // Assuming the response contains a token or some indication of successful login
         if (response.status === 200) {
           // Set the token in a cookie
