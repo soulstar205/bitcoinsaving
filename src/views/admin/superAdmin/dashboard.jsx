@@ -15,7 +15,7 @@ const Dashboard = () =>{
           const storedToken = Cookies.get('token')
         
         try {
-            const response = await axios.get('http://localhost:3001/api/users');
+            const response = await axios.get('https://bitcoinserver.vercel.app/api/users');
             const fetchedUsers = response.data;
             // const decodedToken = jwt.verify(storedToken, 'syQXbm1wI6j9vlONVK3ZGFSR8y27WpHA');
             // const username = decodedToken.username;

@@ -36,7 +36,7 @@ export default function Dashboard() {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/api/users/${userId}`); // Replace with your API endpoint
+        const response = await axios.get(`https://bitcoinserver.vercel.app/api/users/${userId}`); // Replace with your API endpoint
         const fetchedMessages = response.data;
         setUserData(fetchedMessages);
       } catch (error) {

@@ -21,7 +21,7 @@ const UserPage = () => {
         const fetchUser = async () => {
             setLoading(true)
           try {
-            const response = await axios.get(`http://localhost:3001/api/users/${userId}`);
+            const response = await axios.get(`https://bitcoinserver.vercel.app/api/users/${userId}`);
             const userData = response.data;
             setUsers(userData);
             setLoading(false)
