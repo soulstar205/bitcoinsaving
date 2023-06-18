@@ -14,7 +14,7 @@ export const Card = () => {
           <div className="mt-5 mb-5 text-center ">
                 <Link to='/auth/register'>
                 <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/react/overview/notus?ref=nr-index"
+                  href=""
                   target="_blank"
                   className='bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150'
                 >
@@ -23,19 +23,19 @@ export const Card = () => {
                 </Link>
                
               </div>
-            <div className="text-xl font-medium mb- div shadow-md">
+            <div className="text-xl font-medium mb-3 div shadow-md ">
             Minimum Possible Deposit --{">"} <span className="font-medium font-bold">$500</span> 
             </div>
             <div className="text-xl font-medium mb-3 div shadow-md">
             Maximum Possible Deposit --{">"} <span className="font-medium font-bold">$999</span> 
             </div>
-            <div className="text-xl font-medium mb-3 block-line div shadow-md">
+            <div className="text-xl font-medium mb-3 block-line div shadow-md ">
             Minimum Return --{">"} <span className="font-medium font-bold">$1,348</span>
             </div>
-            <div className="text-xl font-medium mb-3 div shadow-md">
+            <div className="text-xl font-medium mb-3 div shadow-md ">
             Maximum Return --{">"} <span className="font-medium font-bold">$2,786</span>
             </div>
-            <div className="text-xl font-medium div shadow-md">
+            <div className="text-xl font-medium div shadow-md ">
             Duration --{">"} <span className="font-medium font-bold"> 1 Week</span>
             </div>
       </div>
@@ -64,13 +64,13 @@ export const Silver = () => {
                 </Link>
                
               </div>
-            <div className="text-xl font-medium mb-3 div shadow-md div2">
+            <div className="text-xl font-medium mb-3 div shadow-md div2 ">
             Minimum Possible Deposit --{">"} <span className="font-medium font-bold">$1000</span> 
             </div>
             <div className="text-xl font-medium mb-3 div shadow-md div2">
             Maximum Possible Deposit--{">"} <span className="font-medium font-bold">$4,999 </span> 
             </div>
-            <div className="text-xl font-medium mb-3 div shadow-md block-line div2">
+            <div className="text-xl font-medium mb-3 div shadow-md block-line div2 ">
             Minimum Return --{">"} <span className="font-medium font-bold">$1,560</span>
             </div>
             <div className="text-xl font-medium mb-3 div shadow-md div2">
