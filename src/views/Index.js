@@ -24,7 +24,7 @@ import { Testimonials } from "../assets/testimonials/test";
 import { Trusted } from "../assets/testimonials/trusted";
 
 
-
+ 
 export default function Index() {
   return (
     <>

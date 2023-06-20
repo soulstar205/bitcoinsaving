@@ -3,10 +3,6 @@ import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import { UserContext } from './state/userContext';
 import Cookies from 'js-cookie';
 
-// Components
-import ProtectedRoute from './views/protected';
-import SuperAminProtectedRoute from './views/superAdminProtect'
-
 // layouts
 
 import Admin from "./layouts/Admin.js";
@@ -17,9 +13,8 @@ import Plans from "./views/admin/Plans"
 // views without layouts
 
 import Landing from "./views/Landing.js";
-import Profile from "./views/Profile.js"; 
+import Profile from "./views/Profile.js";
 import Index from "./views/Index.js";
-import { setTokenSourceMapRange } from 'typescript';
 
 
 const App = () => {

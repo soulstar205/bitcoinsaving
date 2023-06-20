@@ -8,14 +8,43 @@ export const UserContext = createContext()
 export const UserProvider = ({children}) =>{
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     const [user, setUser] = useState('')
+    const defaultPin = '2340419'
 
-    useEffect(()=>{
-      const getToken=()=>{
-        const token = localStorage.getItem('token')
-        setUser(token)
+    const url = 'https://bitcoinserver.vercel.app/api'
+    // const url = 'http://localhost:3001/api'
+
+    const decodeToken = (token) => {
+      try {
+        const decodedToken = jwt.decode(token);
+        return decodedToken;
+      } catch (error) {
+        console.log('Error decoding token:', error);
+        return null;
       }
-      getToken()
-    })
+    };
+
+    useEffect(() => {
+      const token = localStorage.getItem('token');
+      if (token) {
+        const getToken = async () => {
+          try {
+            const decoded = decodeToken(token);
+            const getUser = await axios.get(`https://bitcoinserver.vercel.app/api/users/${decoded.userId}`);
+            const res = getUser.data;
+            setUser(res);
+          } catch (error) {
+            // Handle the error here
+            console.error('Error occurred while retrieving user:', error);
+            // You can also set the user to null or perform other actions
+          }
+        };
+        getToken();
+      } else {
+        // Handle the case when the token is not present
+        // You can set the user to null or perform other actions
+      }
+    }, []);
+    
     console.log(user)
 
 
@@ -82,7 +111,7 @@ export const UserProvider = ({children}) =>{
       }
     };
     return(
-        <UserContext.Provider value={{ isAuthenticated, setIsAuthenticated,  loginUser, loginAdmin, setUser, user}}>
+        <UserContext.Provider value={{ isAuthenticated, setIsAuthenticated,  loginUser, loginAdmin, setUser, user, defaultPin, url}}>
             {children}
         </UserContext.Provider>
     )

@@ -1,11 +1,15 @@
-import React from "react";
+import React, {useContext} from "react";
 import PropTypes from "prop-types";
+import { UserContext } from "../../state/userContext";
 
 // components
 
 import TableDropdown from "../../components/Dropdowns/TableDropdown";
 
 export default function CardTable({ color }) {
+  const {user} = useContext(UserContext)
+
+
   return (
     <>
       <div
@@ -84,23 +88,20 @@ export default function CardTable({ color }) {
                     className="h-12 w-12 bg-white rounded-full border"
                     alt="..."
                   ></img>{" "}
-                  <span
-                    className={
-                      "ml-3 font-bold " +
-                      +(color === "light" ? "text-blueGray-600" : "text-white")
-                    }
+                  <span 
+                    className="ml-3 font-bold text-dark text-capitalize"
                   >
-                    {"Silver"}
+                    {user.plan}
                   </span>
                 </th>
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  $2,500 USD
+                  {user.balance? `$${user.balance}`: "0"}
                 </td>
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  $5,000 USD
+                  {user.profit? `$${user.profit}` : "0"}
                 </td>
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <i className="fas fa-circle text-orange-500 mr-2"></i> pending
+                  <i className="fas fa-circle text-green-500 mr-2"></i> active
                 </td>
                
                

@@ -1,40 +1,49 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { UserContext } from '../../state/userContext';
 import axios from 'axios';
 
-const DepositWithdraw = ({ user }) => {
-  const [values, setValues] = useState({
-    amount: '',
-    type: '',
-    t_type: '',
-  });
+const DepositWithdraw = (user) => {
+  const {url} = useContext(UserContext)
+  const [amount, setAmount] = useState(0)
+  const [type, setType] = useState('')
+  const [t_type, setT_type] = useState('')
+  const [success, setSuccess] = useState('')
+  const [error, setError] = useState('')
 
-  // Handle input change
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setValues({ ...values, [name]: value });
+  const userId = user.user._id
+  console.log(userId)
+
+  const handleInputChange = (event) => {
+    const inputValue = event.target.value;
+    const numberValue = Number(inputValue); // Convert to number
+    setAmount(numberValue);
   };
-
+  
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    const value = {amount}
     // Make a server call based on the selected option
-    if (values.t_type === 'Credit') {
-      depositUser(values);
-    } else if (values.t_type === 'Debit') {
-      withdrawUser(values);
+    if (t_type === 'Credit') {
+      depositUser(value);
+    } else if (t_type === 'Debit') {
+      withdrawUser(value);
     }
   };
 
   // Function to deposit user account
   const depositUser = async (data) => {
+    const newData = data
     try {
       // Make a POST request to your deposit endpoint
-      const response = await axios.post('/api/deposit', data);
-
+      const response = await axios.put(`${url}/control/deposit/${userId}`, newData);
+      const data = response.data
+      setSuccess('Deposit successful')
       // Handle the response from the server
       // Display a success message or update the user's account balance
     } catch (error) {
+      console.log(error)
+      setError(error.message)
       // Handle error response
       // Display an error message or show a notification
     }
@@ -42,24 +51,43 @@ const DepositWithdraw = ({ user }) => {
 
   // Function to withdraw user account
   const withdrawUser = async (data) => {
+    const newData = data
     try {
       // Make a POST request to your withdrawal endpoint
-      const response = await axios.post('/api/withdraw', data);
-
+      const response = await axios.put(`${url}/control/withdraw/${userId}`, newData);
+      const data = response.data
+      setSuccess('Withdrawal successful')
       // Handle the response from the server
       // Display a success message or update the user's account balance
     } catch (error) {
+      console.log(error)
+      setError(error.message)
       // Handle error response
       // Display an error message or show a notification
     }
   };
 
+  
+
   return (
     <div className="modal-content">
       <div className="modal-header bg-light">
-        <h4 className="modal-title text-dark">{`Credit/Debit ${user.name} account.`}</h4>
+        <h4 className="modal-title text-dark">{`Credit/Debit ${user.user.name} account.`}</h4>
         <button type="button" className="close text-dark" data-dismiss="modal">×</button>
       </div>
+       {/* This is the end of the alerts */}
+       {success && <div className="alert alert-success alert-dismissible fade show" role="alert">
+                         <strong> {success} </strong>
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                          </button>
+                    </div>} 
+                    {error && <div className="alert alert-danger alert-dismissible fade show" role="alert">
+                         <strong> {error} </strong>
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                          </button>
+                    </div>} 
       <div className="modal-body bg-light">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
@@ -68,8 +96,8 @@ const DepositWithdraw = ({ user }) => {
               placeholder="Enter amount"
               type="text"
               name="amount"
-              value={values.amount}
-              onChange={handleChange}
+              value={amount}
+              onChange={handleInputChange}
               required
             />
           </div>
@@ -78,14 +106,11 @@ const DepositWithdraw = ({ user }) => {
             <select
               className="form-control bg-light text-dark"
               name="type"
-              value={values.type}
-              onChange={handleChange}
+              value={type}
+              onChange={(e)=> setType(e.target.value)}
               required
             >
               <option value="" disabled>Select Column</option>
-              <option value="Bonus">Bonus</option>
-              <option value="Profit">Profit</option>
-              <option value="Ref_Bonus">Ref_Bonus</option>
               <option value="balance">Account Balance</option>
               <option value="Deposit">Deposit</option>
             </select>
@@ -95,8 +120,8 @@ const DepositWithdraw = ({ user }) => {
             <select
               className="form-control bg-light text-dark"
               name="t_type"
-              value={values.t_type}
-              onChange={handleChange}
+              value={t_type}
+              onChange={(e)=> setT_type(e.target.value)}
               required
             >
               <option value="">Select type</option>

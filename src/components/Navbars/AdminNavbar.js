@@ -1,11 +1,27 @@
-import React, {useContext} from "react";
-import {UserContext} from '../../state/userContext'
+import React, { useContext } from 'react';
 import jwt from 'jsonwebtoken';
+import Popup from "reactjs-popup";
 
+import '../Modals/style.css'
+
+
+//Import components and modals
+import Logout from "../../components/Modals/logout";
+import Messages from '../../components/Modals/messages';
 // import UserDropdown from "../../components/Dropdowns/UserDropdown.js";
+import { UserContext } from '../../state/userContext';
 
-export default function Navbar() {
-  // const {user} = useContext(UserContext)
+// const data = [
+//   { id: 1, title: 'Item 1' },
+//   { id: 2, title: 'Item 2' },
+//   { id: 3, title: 'Item 3' },
+//   { id: 4, title: 'Item 4' }
+// ];
+
+export default function Navbar() { 
+  const {user} = useContext(UserContext)
+
+  
 
   const decodeToken = (token) => {
     try {
@@ -27,43 +43,77 @@ export default function Navbar() {
     <>
       {/* Navbar */}
       <nav className=" w-full z-10 bg-transparent md:flex-row md:flex-nowrap md:justify-start flex items-center p-4">
-        <div className="w-full mx-autp items-center flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4">
+        <div className="w-full mx-autp items-center flex justify-between md:flex-nowrap md:px-10 px-4">
           {/* Brand */}
-          <a
-            className="text-white text-sm uppercase hidden lg:inline-block font-semibold"
-            href="#pablo"
-            onClick={(e) => e.preventDefault()}
-          >
-            Dashboard
-          </a>
+          <div className='relative w-auto pl-4 flex-row justify-between items-center  md:flex'>
+            <a
+              className="text-white text-sm uppercase hidden lg:inline-block font-semibold"
+              href="#pablo"
+              onClick={(e) => e.preventDefault()}
+            >
+              Dashboard
+            </a>
+          </div>
           {/* Form */}
           
           {/* User */}
-          <ul className="flex-col md:flex-row list-none items-center hidden md:flex">
-          <div className="relative w-auto pl-4 flex-row items-center md:flex">
-            <h5 className="px-2 text-white text-capitalize">{username}</h5>
-            <div class="text-center d-md-block d-none flex-row item-center justify-center bg-purple px-2 text-white btn mr-2" style={{borderRadius: "5px"}}>
-                <i class="fa fa-envelope"></i>
-                <a href="" class="pricing-action btn-sm text-decoration-none text-light">Messages</a> &nbsp;
-                  <span>{2}</span>
+          
+          <div className="relative w-auto pl-4 flex-row justify-between items-center  md:flex">
+            <div className="flex ">
+              <h5 className="px-2 text-white text-capitalize">{username}</h5>
             </div>
-              <div
-                className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full "
-               
-              >
-                <button className="dropdown-toggle btn" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i className="fas fa-user text-light"></i>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                  <li><button class="dropdown-item" type="button">Action</button></li>
-                  <li><button class="dropdown-item" type="button">Another action</button></li>
-                  <li><button class="dropdown-item" type="button">Something else here</button></li>
-                </ul>
-              </div>
+
+            <div class="text-center d-md-block d-none flex-row item-center justify-between bg-green rounded text-white btn mr-2" style={{borderRadius: "5px"}}> 
+            <i class="fa fa-envelope mr-2"></i>
+                  <Popup
+                        trigger={
+                          
+                            <span>{''}</span>
+                          
+                        }
+                        contentStyle={{
+                            width: "200px",
+                            height: "fit-content",
+                            background: "whitesmoke",
+                            borderRadius: "5px",
+                        }} 
+                        position="bottom center"
+                        >
+                        <div>
+                            <div className="tip-content">
+                                <Messages prop={user}/>
+                            </div>
+                    </div>
+                </Popup>
+            </div>
+            
+            <div  
+            className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full my-anchor-element" >
+
+                <Popup
+                        trigger={
+                          <i className="fas fa-user text-light"></i>
+                        }
+                        contentStyle={{
+                            width: "100px",
+                            height: "fit-content",
+                            background: "whitesmoke",
+                            borderRadius: "5px",
+                        }} 
+                        position="bottom center"
+                        >
+                        <div>
+                            <div className="tip-content">
+                                <Logout/>
+                            </div>
+                    </div>
+                </Popup>
+            </div>
              
-            </div>
-          </ul>
+          </div>
         </div>
+      
+        
       </nav>
       {/* End Navbar */}
     </>

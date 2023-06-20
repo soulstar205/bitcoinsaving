@@ -16,7 +16,7 @@ export default function Plans() {
               <div className="flex flex-wrap">
 
                 <div className="w-full lg:w-4/12 px-4">
-                  <h5 className="text-xl font-semibold pb-4 text-center">
+                  <h5 className="text-xl font-semibold pb-4 text-center text-light">
                     Basic Plan
                   </h5>
                     <div className="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white  mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150">
@@ -27,7 +27,7 @@ export default function Plans() {
                 </div>
 
                 <div className="w-full lg:w-4/12 px-4">  
-                  <h5 className="text-xl font-semibold pb-4 text-center">
+                  <h5 className="text-xl font-semibold pb-4 text-center text-light">
                     Silver Plan
                   </h5>
                   <div className="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white  mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150">
@@ -36,7 +36,7 @@ export default function Plans() {
                 </div>
 
                 <div className="w-full lg:w-4/12 px-4">
-                  <h5 className="text-xl font-semibold pb-4 text-center">
+                  <h5 className="text-xl font-semibold pb-4 text-center text-light">
                     Premium
                   </h5>
                   <div className="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white  mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150">

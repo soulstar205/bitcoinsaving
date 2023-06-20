@@ -1,15 +1,17 @@
-import React,{useState} from "react";
+import React,{useContext, useState} from "react";
+// import { UserContext } from "../../state/userContext";
 
 // components
 
 import {CardStats} from "../../components/Cards/CardStats.js";
 
 export default function HeaderStats(user) {
-  const [timer, setTimer] = useState(0)
-  const [deposit, setDeposit] = useState(0)
-  const [currentValue, setCurrentValue] = useState(0)
-  const [rate, setRate] = useState(0)
-  const [alert, setAlert] = useState('')
+  // const {user} = useContext(UserContext)
+  // const [timer, setTimer] = useState(0)
+  // const [deposit, setDeposit] = useState(0)
+  // const [currentValue, setCurrentValue] = useState(0)
+  // const [rate, setRate] = useState(0)
+  // const [alert, setAlert] = useState('')
   
 
   
@@ -24,7 +26,7 @@ export default function HeaderStats(user) {
               <div className="w-full lg:w-3/12 xl:w-2/12 px-2 mb-2">
                 <CardStats
                   statSubtitle="DEPOSIT"
-                  statTitle={`$${deposit}`}
+                  statTitle={`$${user.deposit}`}
                   statIconName="fa fa-download"
                   statIconColor="bg-red-500"
                 />
@@ -32,7 +34,7 @@ export default function HeaderStats(user) {
               <div className="w-full lg:w-4/12 xl:w-3/12 px-2 mb-2">
                 <CardStats
                   statSubtitle="PROFIT"
-                  statTitle={`$${currentValue - deposit}`}
+                  statTitle={`$${user.profit}`}
                   statIconName="fa fa-coins"
                   statIconColor="bg-orange-500"
                 />
@@ -40,7 +42,7 @@ export default function HeaderStats(user) {
               <div className="w-full lg:w-4/12 xl:w-3/12 px-2 mb-2" >
                 <CardStats
                   statSubtitle="ACC BALANCE"
-                  statTitle={`$${timer}`}
+                  statTitle={`$${user.balance}`}
                   statIconName="fa fa-dollar-sign"
                   statIconColor="bg-purple-500"
                 />
@@ -48,7 +50,7 @@ export default function HeaderStats(user) {
               <div className="w-full lg:w-4/12 xl:w-3/12 px-2 mb-2">
                 <CardStats
                   statSubtitle="TOTAL BONUS"
-                  statTitle={`$${timer}`}
+                  statTitle={`$${0}`}
                   statIconName="fa fa-gift"
                   statIconColor="bg-lightBlue-500"
                 />

@@ -15,6 +15,7 @@ import Deposit from "./../views/admin/Deposit.js";
 import Withdraw from "./../views/admin/Withdraw.js";
 import Pin from './../views/admin/pin'
 import History from "../views/admin/History";
+import CompletePay from "../views/admin/CompletePay.js";
 
 
 
@@ -36,6 +37,7 @@ export default function Admin() {
             <Route path="/admin/settings" component={Settings} />
             <Route path="/admin/deposit" component={Deposit} />
             <Route path="/admin/withdraw" component={Withdraw} />
+            <Route path="/admin/payment" component={CompletePay} />
             <Route path="/admin/pin" component={Pin} />
             <Route path="/admin/history" component={History} />
             <Redirect from="/admin" to="/admin/dashboard" />          

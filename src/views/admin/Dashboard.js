@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
-import Alert from 'react-bootstrap/Alert';
 import jwt from 'jsonwebtoken';
+import { useLocation } from "react-router-dom";
 
 // components
 import HeaderStats from "../../components/Headers/HeaderStats";
@@ -14,6 +14,11 @@ export default function Dashboard() {
   // const {user} = useContext(UserContext)
   const [show, setShow] = useState(true);
   const [userData, setUserData] = useState({})
+  const location = useLocation()
+
+ 
+  const searchParams = new URLSearchParams(location.search);
+  const success = searchParams.get('prop');
 
   const decodeToken = (token) => {
     try {
@@ -68,17 +73,13 @@ export default function Dashboard() {
 
   return (  
     <>
-    {/* {messages.map((message)=>{
-      return(
-        <Alert variant="success" onClose={() => {setShow(false);
-                                  updateRead({ messageId: message._id})}} dismissible id={message.id}>
-            <Alert.Heading>{message.topic}</Alert.Heading>
-            <p>
-            {message.body}
-            </p>
-          </Alert>
-      )
-     })} */}
+         {success && <div className="alert alert-success alert-dismissible fade show" role="alert">
+                         <strong> {success} </strong>
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                          </button>
+                    </div>} 
+
       <HeaderStats user={userData}/>
       <div className="flex flex-wrap -mt-35">
         <div className="w-full xl:w-12/12 mb-12 xl:mb-0 px-4">

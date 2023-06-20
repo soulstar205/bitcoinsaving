@@ -12,6 +12,7 @@ export default function AdminRegister() {
   const [error, setError] = useState(null)
   const history = useHistory()
 
+  const success = 'Registration successful'
 
   const createUser = async (e) => {
     e.preventDefault();
@@ -24,14 +25,13 @@ export default function AdminRegister() {
       email,
     };
 
-    console.log(newUser);
     try {
       const response = await axios.post('https://bitcoinserver.vercel.app/api/admin/register', {...newUser});
       console.log(response.data);
       setLoading(false);
       
       if (response.status === 200) {
-        history.push('/auth/super-admin/login')
+        history.push(`/auth/super-admin/login?prop=${success}`)
       } else {
         setError('Registration failed. Please try again.');
       }

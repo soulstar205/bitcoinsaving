@@ -18,7 +18,8 @@ export default function Register() {
   const handleSelectChange = (event) => {
     setPlan(event.target.value);
   };
-
+ 
+  const success = 'Registration successful'
   const createUser = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -40,7 +41,7 @@ export default function Register() {
       setLoading(false);
       
       if (response.status === 200) {
-        history.push('/auth/login')
+        history.push(`/auth/login?prop=${success}`)
       } else {
         setError('Registration failed. Please try again.');
       }
@@ -64,6 +65,7 @@ export default function Register() {
                     Sign Up
                   </h6>
                 </div>
+             
                 {error && <div className="alert alert-danger alert-dismissible fade show" role="alert">
                           {error}
                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">

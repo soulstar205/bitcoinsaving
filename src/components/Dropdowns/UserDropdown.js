@@ -11,7 +11,7 @@ const UserDropdown = () => {
       placement: "bottom-start",
     });
     setDropdownPopoverShow(true);
-  };
+  }; 
   const closeDropdownPopover = () => {
     setDropdownPopoverShow(false);
   };

@@ -12,3 +12,45 @@
   .button:hover {
     background-color: #1565c0;
   }
+  .log-out{
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5px;
+    border-radius: 3px;
+  }
+  .log-content{
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    cursor: pointer;
+    padding: 1px;
+    text-decoration: none;
+  
+  }
+p{
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  padding: 5px;
+  text-overflow: clip;
+}
+li{
+  width: 100%;
+}
+
+.content  {
+  position: absolute;
+  z-index: 1;
+  visibility: hidden;
+  opacity: 1;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  transition: visible;
+}

@@ -1,6 +1,5 @@
-import axios from "axios";
-import React, {useState, useContext} from "react";
-import { useHistory, Link} from "react-router-dom";
+import React, {useState, useContext, useEffect} from "react";
+import { useHistory, Link, useLocation} from "react-router-dom";
 import { UserContext } from "../../state/userContext";
 
 export default function AdminLogin() {
@@ -10,6 +9,11 @@ export default function AdminLogin() {
   const [loading, setLoading] =useState(false)
   const [error, setError] = useState('')
   const history = useHistory()
+  const location = useLocation()
+
+ 
+  const searchParams = new URLSearchParams(location.search);
+  const success = searchParams.get('prop');
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -26,12 +30,19 @@ export default function AdminLogin() {
       setLoading(false);
     } else { 
       // Update the error state
+      setLoading(false)
       setError(result.error);
       console.log(result.error)
     }
   };
 
-  
+  useEffect(() => {
+    let isMounted = true;
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
 
   return (
@@ -47,6 +58,12 @@ export default function AdminLogin() {
                     Sign In
                   </h6>
                 </div>
+                {success && <div className="alert alert-success alert-dismissible fade show" role="alert">
+                          {success}
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                          </button>
+                </div>}
                 {error && <div className="alert alert-danger alert-dismissible fade show" role="alert">
                           {error}
                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">

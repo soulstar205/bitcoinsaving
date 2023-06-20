@@ -1,8 +1,11 @@
-import React from "react";
+import React, {useContext} from "react";
+import { UserContext } from "../../state/userContext";
 
 // components
 
 export default function CardProfile(userData) {
+  const {user} = useContext(UserContext)
+
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16">
@@ -12,8 +15,8 @@ export default function CardProfile(userData) {
             
           </div>
           <div className="text-center mt-12">
-            <h3 className="text-xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
-              {'Jenna Stones'}
+            <h3 className="text-xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2 text-capitalize">
+              {user.name}
             </h3>
             <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
               <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>{" "}

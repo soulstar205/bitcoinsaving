@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import {useHistory, useLocation} from 'react-router-dom'
+
+
+//IMport components
 import DepositWidraw from '../../../components/Modals/control'
 import History from '../../../components/Modals/history'
 import LoginAs from '../../../components/Modals/loginAs'
@@ -79,11 +82,11 @@ const UserPage = () => {
                             <div class="p-3 mt-4 border rounded row text-dark">
                                 <div class="col-md-3">
                                     <h5 class="text-bold">Account Balance</h5>
-                                    <p>$3,355</p>
+                                    <p>${user.balance}</p>
                                 </div>
                                 <div class="col-md-3">
                                     <h5>Profit</h5>
-                                    <p>$3,100 </p>
+                                    <p>${user.profit}</p>
                                 </div>
                             
                                 <div class="col-md-3">

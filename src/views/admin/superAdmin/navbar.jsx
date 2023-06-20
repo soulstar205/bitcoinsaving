@@ -1,11 +1,15 @@
 import React, {useContext} from "react";
+import Popup from "reactjs-popup";
+
 import {UserContext} from '../../../state/userContext'
 
 // import UserDropdown from "../../components/Dropdowns/UserDropdown.js";
+import Logout from "../../../components/Modals/logout";
+
 
 export default function Navbar() {
   // const {user} = useContext(UserContext)
-  
+   
   return (
     <>
       {/* Navbar */}
@@ -38,14 +42,24 @@ export default function Navbar() {
               >
                 
                 <div class="dropdown">
-                  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i className="fas fa-user"></i>
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                  </ul>
+                <Popup
+                        trigger={
+                          <i className="fas fa-user text-light cursor-pointer"></i>
+                        }
+                        contentStyle={{
+                            width: "100px",
+                            height: "fit-content",
+                            background: "whitesmoke",
+                            borderRadius: "5px",
+                        }} 
+                        position="bottom center"
+                        >
+                        <div>
+                            <div className="tip-content">
+                                <Logout admin/>
+                            </div>
+                    </div>
+                </Popup>
                 </div>
               </div>
               
