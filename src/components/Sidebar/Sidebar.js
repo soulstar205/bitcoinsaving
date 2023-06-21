@@ -2,8 +2,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import NotificationDropdown from "../../components/Dropdowns/NotificationDropdown.js";
-import UserDropdown from "../../components/Dropdowns/UserDropdown.js";
+// import NotificationDropdown from "../../components/Dropdowns/NotificationDropdown.js";
+// import UserDropdown from "../../components/Dropdowns/UserDropdown.js";
 
 export default function Sidebar() {
   const [collapseShow, setCollapseShow] = React.useState("hidden");
@@ -21,7 +21,8 @@ export default function Sidebar() {
           </button>
           {/* Brand */}
           <Link
-            className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-3"
+            className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-3" 
+          
             to="/admin"
           >
             BITCOIN SAVINGS
@@ -82,7 +83,7 @@ export default function Sidebar() {
             {/* Navigation */}
 
             <ul className="md:flex-col md:min-w-full flex flex-col list-none">
-              <li className="items-center">
+              <li className="items-center" onClick={() => setCollapseShow("hidden")}>
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
@@ -104,7 +105,7 @@ export default function Sidebar() {
                 </Link>
               </li>
 
-              <li className="items-center">
+              <li className="items-center" onClick={() => setCollapseShow("hidden")}>
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
@@ -125,8 +126,9 @@ export default function Sidebar() {
                   Profile Settings
                 </Link>
               </li>
-              <li className="items-center">
+              <li className="items-center" >
                 <Link
+                onClick={() => setCollapseShow("hidden")}
                   className={
                     "text-xs uppercase py-3 font-bold block " +
                     (window.location.href.indexOf("/admin/plans") !== -1
@@ -136,6 +138,7 @@ export default function Sidebar() {
                   to="/admin/plans"
                 >
                   <i
+                  
                     className={
                       "fas fa-tools mr-2 text-sm " +
                       (window.location.href.indexOf("/admin/plans") !== -1
@@ -148,6 +151,7 @@ export default function Sidebar() {
               </li>
               <li className="items-center">
                 <Link
+                onClick={() => setCollapseShow("hidden")}
                   className={
                     "text-xs uppercase py-3 font-bold block " +
                     (window.location.href.indexOf("/admin/plans") !== -1
@@ -180,6 +184,7 @@ export default function Sidebar() {
                 <Link
                   className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
                   to="/admin/deposit"
+                  onClick={() => setCollapseShow("hidden")}
                 >
                   <i className="fas fa-clipboard-list text-blueGray-300 mr-2 text-sm"></i>{" "}
                   Fund your Account
@@ -190,6 +195,7 @@ export default function Sidebar() {
                 <Link
                   className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
                   to="/admin/withdraw"
+                  onClick={() => setCollapseShow("hidden")}
                 >
                   <i className="fas fa-clipboard-list text-blueGray-300 mr-2 text-sm"></i>{" "}
                   Withdraw funds

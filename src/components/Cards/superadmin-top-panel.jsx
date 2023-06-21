@@ -1,17 +1,18 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const TopPanel = () => {
     return(
-        <div class="panel-header bg-primary-gradient px-5">
-        <div class="py-5 page-inner">
+        <div class="panel-header px-5">
+        <div class="py-2 page-inner">
             <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
                 <div>
-                    <h5 class="mb-2 text-white op-7">Welcome, Bitcoin Saver</h5> 
+                    <h5 class="mb-2 text-white op-7">Welcome</h5> 
                 </div>
                 <div class="py-2 ml-md-auto py-md-0">
-                    <a href="" class="mr-2 btn btn-success btn-border ">Deposits</a>
-                    <a href="" class="mr-2 btn btn-danger btn-border ">Withdrawals</a>
-                    <a href="" class="btn btn-secondary ">Users</a>
+                    <Link to='/super-admin/userlist'>
+                    <a href="" class="btn btn-primary ">Users</a>
+                    </Link>
                 </div>
             </div>
         </div>

@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 import Popup from "reactjs-popup";
 
 import '../Modals/style.css'
-
+import './styles.css'
 
 //Import components and modals
 import Logout from "../../components/Modals/logout";
@@ -11,16 +11,12 @@ import Messages from '../../components/Modals/messages';
 // import UserDropdown from "../../components/Dropdowns/UserDropdown.js";
 import { UserContext } from '../../state/userContext';
 
-// const data = [
-//   { id: 1, title: 'Item 1' },
-//   { id: 2, title: 'Item 2' },
-//   { id: 3, title: 'Item 3' },
-//   { id: 4, title: 'Item 4' }
-// ];
+
 
 export default function Navbar() { 
   const {user} = useContext(UserContext)
 
+  console.log(user)
   
 
   const decodeToken = (token) => {
@@ -42,10 +38,10 @@ export default function Navbar() {
   return (
     <>
       {/* Navbar */}
-      <nav className=" w-full z-10 bg-transparent md:flex-row md:flex-nowrap md:justify-start flex items-center p-4">
-        <div className="w-full mx-autp items-center flex justify-between md:flex-nowrap md:px-10 px-4">
+      <nav className="nav-container">
+        <div className="nav-inner">
           {/* Brand */}
-          <div className='relative w-auto pl-4 flex-row justify-between items-center  md:flex'>
+          <div className='nav-left'>
             <a
               className="text-white text-sm uppercase hidden lg:inline-block font-semibold"
               href="#pablo"
@@ -57,38 +53,37 @@ export default function Navbar() {
           {/* Form */}
           
           {/* User */}
-          
-          <div className="relative w-auto pl-4 flex-row justify-between items-center  md:flex">
+        
+          <div className="nav-right md\:px-10">
             <div className="flex ">
               <h5 className="px-2 text-white text-capitalize">{username}</h5>
             </div>
 
-            <div class="text-center d-md-block d-none flex-row item-center justify-between bg-green rounded text-white btn mr-2" style={{borderRadius: "5px"}}> 
+            <div className="nav-msg" > 
             <i class="fa fa-envelope mr-2"></i>
                   <Popup
                         trigger={
                           
-                            <span>{''}</span>
+                            <span>{user.messages && user.messages.length}</span>
                           
                         }
                         contentStyle={{
                             width: "200px",
                             height: "fit-content",
                             background: "whitesmoke",
-                            borderRadius: "5px",
                         }} 
                         position="bottom center"
                         >
                         <div>
                             <div className="tip-content">
-                                <Messages prop={user}/>
+                                <Messages prop={user.messages}/>
                             </div>
                     </div>
                 </Popup>
             </div>
             
             <div  
-            className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full my-anchor-element" >
+            className="nav-user" >
 
                 <Popup
                         trigger={
@@ -109,9 +104,8 @@ export default function Navbar() {
                     </div>
                 </Popup>
             </div>
-             
+            </div>
           </div>
-        </div>
       
         
       </nav>

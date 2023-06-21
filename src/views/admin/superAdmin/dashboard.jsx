@@ -17,8 +17,6 @@ const Dashboard = () =>{
         try {
             const response = await axios.get('https://bitcoinserver.vercel.app/api/users');
             const fetchedUsers = response.data;
-            // const decodedToken = jwt.verify(storedToken, 'syQXbm1wI6j9vlONVK3ZGFSR8y27WpHA');
-            // const username = decodedToken.username;
             setUsers(fetchedUsers);
             console.log(fetchedUsers)   
         } catch (error) {
@@ -32,7 +30,7 @@ const Dashboard = () =>{
 
 
     return(
-        <div>
+        <div className='transparent'>
            <TopPanel />
            <AdminStats user={users}/>
         </div>

@@ -4,7 +4,7 @@ import './plan.css'
 
 export const Card = () => {
     return (
-      <div className="bg-white p-4 rounded-lg shadow-md grid text-center vertical-middle p-5 justify-left"
+      <div className="bg-white rounded-lg shadow-md grid text-center vertical-middle p-4 justify-left"
       style={{ width: '100%', height: '100%' }}>
           
           
@@ -45,7 +45,7 @@ export const Card = () => {
 
 export const Silver = () => {
     return (
-      <div className="bg-white p-4 rounded-lg shadow-md grid text-center vertical-middle p-5 justify-left"
+      <div className="bg-white rounded-lg shadow-md grid text-center vertical-middle  p-4  justify-left"
       style={{ width: '100%', height: '100%' }}>
           
        
@@ -85,7 +85,7 @@ export const Silver = () => {
 
 export const Gold = () => {
     return (
-      <div className="bg-white p-4 rounded-lg shadow-md grid text-center vertical-middle p-5 justify-left"
+      <div className="bg-white rounded-lg shadow-md grid text-center vertical-middle p-4 justify-left"
       style={{ width: '100%', height: '100%' }}>
           
         

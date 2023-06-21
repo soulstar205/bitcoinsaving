@@ -73,14 +73,13 @@ export default function Userlist() {
   return (
     <>
     <div className="relative bg-lightBlue-600 pb-32">
-        <div className="px-4 md:px-10 mx-auto w-full">
+        <div className="md:px-10 mx-auto w-full">
 
         <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row px-4">
         <div>
-            <h5 class="mb-2 text-white op-7">Welcome, Admin</h5> 
+            <h5 class="mb-2 text-white op-7">User List</h5> 
         </div>
         <div class="py-2 ml-md-auto py-md-0">
-            <a href="" class="mr-2 btn btn-success btn-border ">Message all</a>
             <a href="" class="mr-2 btn btn-success btn-border" data-toggle="modal" data-target="#Adduser">Add user</a>
           </div>
         </div>

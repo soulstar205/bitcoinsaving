@@ -12,10 +12,10 @@ export default function Plans() {
       <section className="block relative z-1 bg-blueGray-300 ">
         <div className="container mx-auto">
           <div className="justify-center flex flex-wrap">
-            <div className="w-full lg:w-12/12 px-4  mt-24">
+            <div className="w-full lg:w-12/12 px-2  ">
               <div className="flex flex-wrap">
 
-                <div className="w-full lg:w-4/12 px-4">
+                <div className="w-full lg:w-4/12 ">
                   <h5 className="text-xl font-semibold pb-4 text-center text-light">
                     Basic Plan
                   </h5>
@@ -26,7 +26,7 @@ export default function Plans() {
         
                 </div>
 
-                <div className="w-full lg:w-4/12 px-4">  
+                <div className="w-full lg:w-4/12 px-2 ">  
                   <h5 className="text-xl font-semibold pb-4 text-center text-light">
                     Silver Plan
                   </h5>
@@ -35,7 +35,7 @@ export default function Plans() {
                   </div>
                 </div>
 
-                <div className="w-full lg:w-4/12 px-4">
+                <div className="w-full lg:w-4/12 px-2 ">
                   <h5 className="text-xl font-semibold pb-4 text-center text-light">
                     Premium
                   </h5>

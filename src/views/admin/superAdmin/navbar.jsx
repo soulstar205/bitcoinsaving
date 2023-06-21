@@ -5,6 +5,7 @@ import {UserContext} from '../../../state/userContext'
 
 // import UserDropdown from "../../components/Dropdowns/UserDropdown.js";
 import Logout from "../../../components/Modals/logout";
+import './styles.css'
 
 
 export default function Navbar() {
@@ -28,14 +29,8 @@ export default function Navbar() {
           {/* User */}
           <ul className="flex-col md:flex-row list-none items-center hidden md:flex">
           <div className="relative w-auto pl-4 flex-row items-center md:flex">
-            <h3 className="px-2 text-white">{"Admin"}</h3>
-          {/* <div class="text-center d-md-block d-none flex-row item-center justify-center bg-pink-500 px-2 text-white btn mr-2">
-                <i class="fa fa-envelope"></i>
-                <a href="" class="pricing-action btn-sm">Messages</a> &nbsp;
-                <span>{2}</span>
-            </div> */}
+            <h5 className="px-2 text-white">{"Admin"}</h5>
               <div
-
                 className={
                   "text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full " 
                 }
