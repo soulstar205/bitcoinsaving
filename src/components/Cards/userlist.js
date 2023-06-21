@@ -1,32 +1,14 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import {Link } from 'react-router-dom'
 import AddUser from "../../components/Modals/addUser";
 import axios from "axios";
 import '../Modals/style.css'
 // components
 
-
-const users = [
-  {
-    id: 1,
-    name: "Matt",
-    balance: "200",
-    email: "matwasg@gmail.com",
-    active: true,
-    phone: "222-333-444"
-  },
-  {
-    id: 2,
-    name: "Damon",
-    balance: "300",
-    email: "trasg@gmail.com",
-    active: true,
-    phone: "222-555-666"
-  },
-]
-
+import { UserContext } from "../../state/userContext";
 
 export default function Userlist() {
+  const {url} = useContext(UserContext)
   const [update, setUpdate] = useState()
   const [modalIsOpen, setIsOpen] = useState(false);
   const [id, setId] = useState(null)
@@ -38,7 +20,7 @@ export default function Userlist() {
     const fetchUsers = async () => {
       
       try {
-          const response = await axios.get('http://localhost:3001/api/users');
+          const response = await axios.get(`${url}/users`);
           const fetchedUsers = response.data;
           setUsers(fetchedUsers);
           console.log(fetchedUsers)   
