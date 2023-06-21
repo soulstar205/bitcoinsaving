@@ -10,8 +10,8 @@ export const UserProvider = ({children}) =>{
     const [user, setUser] = useState('')
     const defaultPin = '2340419'
 
-    // const url = 'https://bitcoinserver.vercel.app/api'
-    const url = 'http://localhost:3001/api'
+    const url = 'https://bitcoinserver.vercel.app/api'
+    // const url = 'http://localhost:3001/api'
 
     const decodeToken = (token) => {
       try {
