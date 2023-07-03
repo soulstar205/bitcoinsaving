@@ -37,12 +37,12 @@ export default function Index() {
                 Bitcoin Savings: Fast & Secure High Yielding Investment Plans.
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
-              A wide selection of investment plans to help build a diversified portfolio.
+              A wide selection of investment plans to help build a diversified portfolio. 
                 <a
                   href="https://tailwindcss.com/?ref=creativetim"
                   className="text-blueGray-600"
                   target="_blank"
-                >
+                > 
                 Dedicated financial consultant to help reach your own specific goals
                 </a>
                 . Powerful trading tools,resources and support.

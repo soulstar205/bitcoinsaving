@@ -18,9 +18,10 @@ const UserPage = () => {
     const history = useHistory()
     const location = useLocation()
     const [loading, setLoading] = useState(false)
-
     const userId = location.state
 
+    console.log(user)
+   
     useEffect(() => {
         const fetchUser = async () => {
             setLoading(true)
@@ -40,17 +41,11 @@ const UserPage = () => {
 
       console.log(user)
         
-    const handleButtonClick = () => {
-        if (window.location.pathname === '/super-admin/user') {
-        // If the current URL is '/super-admin/userlist'
-        // Redirect to '/super-admin/userlist'
-        history.push('/super-admin/userlist');
-        } else {
-        // If the current URL is not '/super-admin/userlist'
-        // Redirect to '/super-admin/userlist'
-        history.push('/super-admin/userlist');
-        }
-    };
+    //   useEffect(() => {
+    //     if (!loading && Object.keys(user).length === 0) {
+    //       history.push('/super-admin/userlist');
+    //     }
+    //   }, [loading, user, history]);
 
     return(
         <div className="row flex-box">

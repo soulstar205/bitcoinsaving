@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useContext, useState } from "react";
 import { UserContext } from "../../state/userContext";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from 'react-router-dom';
 import './style.css'
 
 // components
@@ -11,22 +11,25 @@ const DeleteUser = ({user}) => {
   const [success, setSuccess] = useState('')
   const [error, setError] = useState('')
   const history = useHistory()
+  const location = useLocation();
+
 
 
   const userId = user._id
-  const deleteUser = async (e) => {
-    e.preventDefault()
-    try {
-      const remove = await axios.delete(`${url}/control/delete/${userId}`)
-      const data = remove.data
-      setSuccess('User successfully deleted')
-      history.push('/super-admin')
-    } catch (error) {
-      console.log(error)
-      setError(error.message)
-    }
-  }
-
+  const deleteUser = () => {
+    axios
+      .delete(`${url}/control/delete/${userId}`)
+      .then((remove) => {
+        const data = console.log(remove.data);
+        setSuccess('User successfully deleted');
+        history.push('/userlist');
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(error.message);
+      });
+  };
+  
   return (
 
     <div class="modal-content">
@@ -35,6 +38,7 @@ const DeleteUser = ({user}) => {
             <button type="button" class="close text-dark" data-dismiss="modal">×</button>
         </div>
         <div class="modal-body bg-light">
+          <div>
         {success && <div className="alert alert-success alert-dismissible fade show" role="alert">
                          <strong> {success} </strong>
                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -47,8 +51,12 @@ const DeleteUser = ({user}) => {
                           <span aria-hidden="true">×</span>
                           </button>
                     </div>} 
+          </div>
               <div className="form-group">
-              <button className="btn btn-warning" onClick={deleteUser}>Proceed</button>
+                <form onSubmit={deleteUser}>
+
+                  <button className="btn btn-warning" type="submit" >Proceed</button>
+                </form>
               </div>
         </div>
     </div>

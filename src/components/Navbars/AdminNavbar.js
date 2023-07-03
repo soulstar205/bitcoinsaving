@@ -8,6 +8,7 @@ import './styles.css'
 //Import components and modals
 import Logout from "../../components/Modals/logout";
 import Messages from '../../components/Modals/messages';
+import Read from '../../components/Modals/readMessage';
 // import UserDropdown from "../../components/Dropdowns/UserDropdown.js";
 import { UserContext } from '../../state/userContext';
 
@@ -16,8 +17,6 @@ import { UserContext } from '../../state/userContext';
 export default function Navbar() { 
   const {user} = useContext(UserContext)
 
-  console.log(user)
-  
 
   const decodeToken = (token) => {
     try {
@@ -42,29 +41,24 @@ export default function Navbar() {
         <div className="nav-inner">
           {/* Brand */}
           <div className='nav-left'>
-            <a
-              className="text-white text-sm uppercase hidden lg:inline-block font-semibold"
-              href="#pablo"
-              onClick={(e) => e.preventDefault()}
-            >
-              Dashboard
-            </a>
+          
           </div>
           {/* Form */}
           
           {/* User */}
         
-          <div className="nav-right md\:px-10">
+          <div className="nav-right md\:px-10 align-center">
             <div className="flex ">
               <h5 className="px-2 text-white text-capitalize">{username}</h5>
             </div>
 
             <div className="nav-msg" > 
-            <i class="fa fa-envelope mr-2"></i>
                   <Popup
                         trigger={
-                          
-                            <span>{user.messages && user.messages.length}</span>
+                          <div className='flex-nav'>  
+                          <i class="fa fa-envelope mr-2"></i>
+                            <span>{user ? user.messages.length : '0'}</span>
+                          </div>
                           
                         }
                         contentStyle={{
@@ -76,7 +70,7 @@ export default function Navbar() {
                         >
                         <div>
                             <div className="tip-content">
-                                <Messages prop={user.messages}/>
+                                <Messages prop={user && user.messages}/>
                             </div>
                     </div>
                 </Popup>
@@ -110,6 +104,11 @@ export default function Navbar() {
         
       </nav>
       {/* End Navbar */}
+      <div class="modal" tabindex="-1" id="ReadMessage" role="dialog">
+          <div class="modal-dialog" role="document">
+              <Read />
+          </div>
+      </div>
     </>
   );
 }

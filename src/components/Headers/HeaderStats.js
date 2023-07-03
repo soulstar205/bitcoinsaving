@@ -7,12 +7,7 @@ import {CardStats} from "../../components/Cards/CardStats.js";
 
 export default function HeaderStats() {
   const {user} = useContext(UserContext)
-  // const [timer, setTimer] = useState(0)
-  // const [deposit, setDeposit] = useState(0)
-  // const [currentValue, setCurrentValue] = useState(0)
-  // const [rate, setRate] = useState(0)
-  // const [alert, setAlert] = useState('')
-  console.log(user.deposits)
+  
 
   
   return (
