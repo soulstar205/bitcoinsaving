@@ -15,28 +15,28 @@ export default function Login() {
   const searchParams = new URLSearchParams(location.search);
   const success = searchParams.get('prop');
 
-  const handleLogin = async (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     setLoading(true);
     const loginData = {
       email,
-      password
+      password,
     };
-    const result = await loginUser(loginData);
-    
-    if (result.success) {
-      // Redirect to the admin page
-      setLoading(false);
-      console.log(result)
-      history.push('/admin');
-    } else {
-      // Update the error state]
-      setLoading(false)
-      setError(result.error);
-      console.log(result.error)
-    }
+  
+    loginUser(loginData)
+      .then((result) => {
+        // Redirect to the admin page on successful login
+        setLoading(false);
+        history.push('/admin/dashboard');
+        console.log(result)
+      })
+      .catch((error) => {
+        setLoading(false);
+        setError(error);
+        console.error(error);
+      });
   };
-
+  
   useEffect(() => {
     let isMounted = true;
 

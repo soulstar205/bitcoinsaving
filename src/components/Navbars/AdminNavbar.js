@@ -38,21 +38,21 @@ export default function Navbar() {
     <>
       {/* Navbar */}
       <nav className="nav-container">
-        <div className="nav-inner">
+        <div className="nav-inner w-full px-3">
           {/* Brand */}
-          <div className='nav-left'>
+          {/* <div className='nav-left'>
           
-          </div>
+          </div> */}
           {/* Form */}
           
           {/* User */}
         
-          <div className="nav-right md\:px-10 align-center">
-            <div className="flex ">
-              <h5 className="px-2 text-white text-capitalize">{username}</h5>
+          <div className="nav-right md\:px-10 align-center w-full flex">
+            <div className="flex w-full">
+              <h5 className="px-2 text-white text-capitalize flex">Welcome, {username}</h5>
             </div>
 
-            <div className="nav-msg" > 
+            <div className="nav-msg mr-3" > 
                   <Popup
                         trigger={
                           <div className='flex-nav'>  

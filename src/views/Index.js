@@ -16,7 +16,7 @@ import hr from "../assets/img/hr.jpg"
 import engineer from "../assets/img/engineer.jpg"
 import data from "../assets/img/data.jpg"
 import executive from "../assets/img/executive.jpg"
-import ceo from "../assets/img/ceo.jpg"
+import ceo from "../assets/img/nicolas.jpg"
 import { Card } from "../assets/utils/planCard";
 import { Gold } from "../assets/utils/planCard";
 import { Silver } from "../assets/utils/planCard";
@@ -271,7 +271,7 @@ export default function Index() {
                         CEO 
                       </p>
                       <p className="text-lg text-white mt-1">
-                        Mr Nicolas
+                        Nicolas Cary
                       </p>
                     </div>
                   </a>

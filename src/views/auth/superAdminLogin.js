@@ -15,26 +15,27 @@ export default function AdminLogin() {
   const searchParams = new URLSearchParams(location.search);
   const success = searchParams.get('prop');
 
-  const handleLogin = async (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     setLoading(true);
     const loginData = {
       email,
-      password
+      password,
     };
-    const result = await loginAdmin(loginData);
-    
-    if (result.success) {
-      // Redirect to the admin page
-      history.push('/super-admin');
-      setLoading(false);
-    } else { 
-      // Update the error state
-      setLoading(false)
-      setError(result.error);
-      console.log(result.error)
-    }
+  
+    loginAdmin(loginData)
+      .then((result) => {
+        setLoading(false);
+        history.push('/super-admin');
+        console.log(result)
+      })
+      .catch((error) => {
+        setLoading(false);
+        setError(error);
+        console.error(error);
+      });
   };
+  
 
   useEffect(() => {
     let isMounted = true;
