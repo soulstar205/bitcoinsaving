@@ -25,7 +25,7 @@ export default function Sidebar() {
           
             to="/admin"
           >
-            LEGIT BINARY
+            BINARY LEGIT
           </Link>
           {/* User */}
           {/* <ul className="md:hidden items-center flex flex-wrap list-none">
