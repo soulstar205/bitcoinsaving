@@ -45,7 +45,7 @@ export default function Index() {
                 > 
                 Dedicated financial consultant to help reach your own specific goals
                 </a>
-                . Powerful trading tools,resources and support.
+                . Powerful trading tools, resources and support.
               </p>
               <div className="mt-12">
                 <Link to='/auth/register'>
