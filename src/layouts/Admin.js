@@ -43,7 +43,7 @@ export default function Admin() {
             <Redirect from="/admin" to="/admin/dashboard" />          
             
           </Switch>
-          {/* <FooterAdmin /> */}
+          <FooterAdmin />
         </div>
       </div>
 

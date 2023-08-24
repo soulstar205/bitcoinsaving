@@ -9,6 +9,8 @@ import Plans from "../views/admin/superAdmin/plans";
 import Navbar from "../views/admin/superAdmin/navbar";
 import Userlist from "../components/Cards/userlist.js";
 import Sidebar from "../components/Sidebar/adminSidebar";
+import FooterAdmin from "./../components/Footers/FooterAdmin";
+
 
 
 
@@ -33,6 +35,7 @@ export default function SuperAdmin() {
         <Redirect from="/admin/super-admin" to="/super-admin" />          
         <Route path="/" component={Dashboard}/>
       </Switch>
+      <FooterAdmin />
     </div>
     </div>
     </>
