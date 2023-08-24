@@ -92,7 +92,7 @@ export default function Index() {
         </div>
         <div className="container mx-auto">
           <div className="flex flex-wrap items-center">
-            <div className="w-10/12 md:w-6/12 lg:w-4/12 px-12 md:px-4 mr-auto ml-auto -mt-32">
+            <div className="w-10/12 md:w-6/12 lg:w-4/12 px-3 md:px-2 mr-auto ml-auto -mt-32">
               <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-lightBlue-500">
                 <img
                   alt="..."
@@ -221,7 +221,7 @@ export default function Index() {
            
             </div>
 
-            <div className="w-full md:w-5/12 px-4 mr-auto ml-auto mt-32">
+            <div className="w-full md:w-6/12 px-4 mr-auto ml-auto mt-32">
               <div className="relative flex flex-col min-w-0 w-full mb-6 mt-48 md:mt-0">
                 <img
                   alt="..."
@@ -439,7 +439,7 @@ export default function Index() {
             <div className="w-full lg:w-12/12 px-4  -mt-24">
               <div className="flex flex-wrap">
 
-                <div className="w-full lg:w-4/12 px-4">
+                <div className="w-full lg:w-4/12 px-2">
                   <h5 className="text-xl font-semibold pb-4 text-center">
                     Basic Plan
                   </h5>
@@ -450,7 +450,7 @@ export default function Index() {
         
                 </div>
 
-                <div className="w-full lg:w-4/12 px-4">  
+                <div className="w-full lg:w-4/12 px-2">  
                   <h5 className="text-xl font-semibold pb-4 text-center">
                     Silver Plan
                   </h5>
@@ -459,7 +459,7 @@ export default function Index() {
                   </div>
                 </div>
 
-                <div className="w-full lg:w-4/12 px-4">
+                <div className="w-full lg:w-4/12 px-2">
                   <h5 className="text-xl font-semibold pb-4 text-center">
                     Premium
                   </h5>
