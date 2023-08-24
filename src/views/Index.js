@@ -34,7 +34,7 @@ export default function Index() {
           <div className="w-full md:w-8/12 lg:w-6/12 xl:w-6/12 px-4">
             <div className="pt-32 sm:pt-0">
               <h2 className="font-semibold text-4xl text-blueGray-600">
-                Bitcoin Savings: Fast & Secure High Yielding Investment Plans.
+                Welcome To Binary Legit Safe Trade.
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
               A wide selection of investment plans to help build a diversified portfolio. 
@@ -196,16 +196,19 @@ export default function Index() {
                 About Us
               </h3>
               <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-                For decades, the dominant players in forex have been the privileged, in-the-know few.
-                But our platform is disrupting
-                the entire industry and equipping prospective investors
-                  with the opportunity to actualize their investment dreams
+              Binary Legit Safe Trade LLC; is an American company dedicated to the advice,
+              management and adminstration of high net worth accounts. 
+              With a staff of highly qualified executives and with experience in the financial sector, 
+              we advice our clients on their investment needs.
+              The company has a series 3 license, issued by the National Future Association (NFA) of 
+              the United States Of America.
+              ID: 0526539.
               </p>
               <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-              Grow a trade account and make internet work for you, relieve you from 9-5 jobs 
-              the foriegn exchange market work for you 24/7 with our minimalist platform. 
-              We trade and ensure the coverage of transactions profitably in Forex, Commodities(stocks), 
-              and Indices etc. We manage losses and trading processes 
+              We grow a trade account and make internet work for you, relieve you from 9-5 jobs 
+              the futures trading market work for you 24/7 with our minimalist platform. 
+              We trade and ensure the coverage of transactions profitably in Futures.
+              We manage losses and trading processes 
               to meet up with the average required monthly quota ROI of your 
               desired package and facilitation of the worldwide maket.
               </p>
@@ -215,14 +218,7 @@ export default function Index() {
               Join over 4000 investors from all over the world satisfied with our services.
               </p> 
                  
-              <a
-                href="#"
-                target="_blank"
-                className="font-bold text-blueGray-700 hover:text-blueGray-500 ease-linear transition-all duration-150"
-              >
-                There's more...{" "}
-                <i className="fa fa-angle-double-right ml-1 leading-relaxed"></i>
-              </a>
+           
             </div>
 
             <div className="w-full md:w-5/12 px-4 mr-auto ml-auto mt-32">
@@ -235,23 +231,19 @@ export default function Index() {
                 <img
                   alt="..."
                   src={business}
-                  className="w-full align-middle rounded-lg absolute shadow-lg -top-160-px left-260-px max-w-210-px"
+                  className="w-full align-middle rounded-lg absolute shadow-lg -top-160-px left-260-px max-w-100-px"
                 />
                 <img
                   alt="..."
                   src={hold}
-                  className="w-full align-middle rounded-lg absolute shadow-lg max-w-180-px -top-225-px left-40-px z-2"
+                  className="w-full align-middle rounded-lg absolute shadow-lg max-w-100-px -top-225-px left-40-px z-2"
                 />
                 <img
                   alt="..."
                   src={office}
-                  className="w-full align-middle rounded-lg absolute shadow-2xl max-w-200-px -left-50-px top-25-px"
+                  className="w-full align-middle rounded-lg absolute shadow-2xl max-w-100-px -left-50-px top-25-px"
                 />
-                <img
-                  alt="..."
-                  src={money}
-                  className="w-full align-middle rounded absolute shadow-lg max-w-200-px -left-20-px top-210-px"
-                />
+             
                 <img
                   alt="..."
                   src={presentation}
@@ -279,7 +271,7 @@ export default function Index() {
                         CEO 
                       </p>
                       <p className="text-lg text-white mt-1">
-                        Mathew Walsh
+                        Mr Nicolas
                       </p>
                     </div>
                   </a>

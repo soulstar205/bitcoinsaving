@@ -9,6 +9,7 @@ export default function Register() {
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
   const [plan, setPlan] = useState('')
+  const [currency, setCurrency] = useState('')
   const [phone, setPhone] = useState(null)
   const [country, setCountry] = useState('')
   const [loading, setLoading] = useState(false)
@@ -18,6 +19,10 @@ export default function Register() {
   const handleSelectChange = (event) => {
     setPlan(event.target.value);
   };
+
+  const handleSelectCurrency = (event) => {
+    setCurrency(event.target.value)
+  }
  
   const success = 'Registration successful'
   const createUser = async (e) => {
@@ -31,7 +36,8 @@ export default function Register() {
       email,
       phone,
       plan,
-      country
+      country,
+      currency
     };
 
     console.log(newUser);
@@ -176,9 +182,25 @@ export default function Register() {
                       Plan
                     </label>
                        <select value={plan} onChange={handleSelectChange} className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
-                        <option value="silver">Silver Plan = $500 - $999</option>
-                        <option value="gold">Gold Plan = $1000 - $4,999</option>
-                        <option value="platinum">Platinum Plan = $5000 - $9,999</option>
+                       <option className="p-3 border-0" value="No plan selected">PLAN</option>
+                        <option className="p-3 border-0" value="silver">SILVER = $500 - $999</option>
+                        <option className="py-3 px-3 border-0"  value="gold">GOLD = $1000 - $4,999</option>
+                        <option className="py-3 px-3 border-0" value="platinum">PLATINUM = $5000 - $9,999</option>
+                      </select>
+                  </div>
+
+                  <div className="relative w-full mb-3">
+                    <label
+                      className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                      htmlFor="grid-password"
+                    >
+                      Choose Currency
+                    </label>
+                       <select value={currency} onChange={handleSelectCurrency} className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                       <option className="py-3 px-3 border-0" value="No currency selected">CURRENCY</option>
+                        <option className="py-3 px-3 border-0" value="usd">$ USD</option>
+                        <option className="py-3 px-3 border-0"  value="euro">€ EUR</option>
+                        <option className="py-3 px-3 border-0" value="pounds">£ GBP</option>
                       </select>
                   </div>
 
