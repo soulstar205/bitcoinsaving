@@ -11,14 +11,14 @@ export default function FooterAdmin() {
               <div className="text-sm text-blueGray-500 font-semibold py-1 text-center md:text-left">
                 Copyright © {new Date().getFullYear()}{" "}
                 <a
-                  href="https://www.creative-tim.com?ref=nr-footer-admin"
+                  href="#"
                   className="text-blueGray-500 hover:text-blueGray-700 text-sm font-semibold py-1"
                 >
                   Legit Binary
                 </a>
               </div>
             </div>
-            <div className="w-full md:w-8/12 px-4">
+            {/* <div className="w-full md:w-8/12 px-4">
               <ul className="flex flex-wrap list-none md:justify-end  justify-center">
                 <li>
                   <a
@@ -38,7 +38,7 @@ export default function FooterAdmin() {
                 </li>
                 
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
       </footer>
