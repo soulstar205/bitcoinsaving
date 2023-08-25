@@ -22,12 +22,11 @@ export default function AdminLogin() {
       email,
       password,
     };
-  
     loginAdmin(loginData)
       .then((result) => {
         setLoading(false);
+        console.log('Login Result:', result); // Add this log
         history.push('/super-admin');
-        console.log(result)
       })
       .catch((error) => {
         setLoading(false);
@@ -35,6 +34,7 @@ export default function AdminLogin() {
         console.error(error);
       });
   };
+  
   
 
   useEffect(() => {

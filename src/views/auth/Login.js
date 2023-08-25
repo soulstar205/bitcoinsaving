@@ -27,8 +27,9 @@ export default function Login() {
       .then((result) => {
         // Redirect to the admin page on successful login
         setLoading(false);
+        console.log('Login Result:', result); // Add this log
         history.push('/admin/dashboard');
-        console.log(result)
+        console.log('Login Result:', result); // Add this log
       })
       .catch((error) => {
         setLoading(false);
