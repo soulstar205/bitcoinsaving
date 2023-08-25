@@ -11,7 +11,7 @@ export default function Sidebar() {
 
     const logoutFunc =()=>{
         localStorage.clear();
-        history.push('/auth/super-admin/login')
+        history.push('/')
     }
   return (
     <>
