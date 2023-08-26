@@ -24,9 +24,14 @@ export default function AdminLogin() {
     };
     loginAdmin(loginData)
       .then((result) => {
-        setLoading(false);
-        console.log('Login Result:', result); // Add this log
-        history.push('/super-admin');
+        if(result.success){
+          history.push('/super-admin');
+          console.log('Login Result:', result); // Add this log
+          setLoading(false);
+        }else{
+          setError('This user is not registered')
+          setLoading(false)
+        }
       })
       .catch((error) => {
         setLoading(false);

@@ -7,7 +7,7 @@ export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
+  const [error, setError] = useState('')
   const history = useHistory()
   const location = useLocation()
 
@@ -26,14 +26,18 @@ export default function Login() {
     loginUser(loginData)
       .then((result) => {
         // Redirect to the admin page on successful login
-        setLoading(false);
-        console.log('Login Result:', result); // Add this log
-        history.push('/admin/dashboard');
-        console.log('Login Result:', result); // Add this log
+        if(result.success){
+          history.push('/admin/dashboard');
+          setLoading(false);
+          console.log('Login Result:', result); // Add this log
+        }else {
+          setLoading(false);
+          setError("This user is not registered");
+        }
       })
       .catch((error) => {
         setLoading(false);
-        setError(error);
+        setError(error.error);
         console.error(error);
       });
   };

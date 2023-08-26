@@ -21,7 +21,7 @@ export default function HeaderStats() {
               <div className="w-full lg:w-3/12 xl:w-2/12 px-2 mb-2">
                 <CardStats
                   statSubtitle="DEPOSIT"
-                  statTitle={user.deposits && user.deposits.length > 0 ? `$${user.deposits[0].amount}` : "$0"}
+                  statTitle={user && user.deposits && user.deposits.length > 0 ? `$${user.deposits[0].amount}` : "$0"}
                   statIconName="fa fa-download"
                   statIconColor="bg-red-500"
                 />
